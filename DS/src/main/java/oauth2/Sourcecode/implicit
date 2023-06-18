@@ -1,0 +1,29 @@
+https://{yourDomain}/authorize?
+    response_type=YOUR_RESPONSE_TYPE&
+    response_mode=form_post&
+    client_id={yourClientId}&
+    redirect_uri={https://yourApp/callback}&
+    scope=SCOPE&
+    state=STATE&
+    nonce=NONCE
+
+ <a href="https://{yourDomain}/authorize?
+   response_type=id_token token&
+   response_mode=form_post&
+   client_id={yourClientId}&
+   redirect_uri={https://yourApp/callback}&
+   scope=read:tests&
+   state=xyzABC123&
+   nonce=eq...hPmz">
+   Sign In
+ </a>
+
+HTTP/1.1 302 Found
+Content-Type: application/x-www-form-urlencoded
+id_token=eyJ...acA&
+state=xyzABC123
+
+Response Type	Components
+id_token	ID Token
+token	Access Token (plus expires_in and token_type values)
+id_token token	ID Token, Access Token (plus expires_in and token_type values)

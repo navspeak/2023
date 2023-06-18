@@ -1,0 +1,6 @@
+
+                             Reads Per Second                          Writes Per Second
+RDBMS                        10,000                                    5,000
+Distributed Cache            100,000                                   100,000
+Messaging Queue              100,000                                   100,000
+NoSQL                        20,000-50,000                             10,000-25,000
