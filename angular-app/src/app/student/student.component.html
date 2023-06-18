@@ -1,0 +1,13 @@
+<!-- <h2>{{student1.id}}</h2>
+<h2>{{student1.name}}</h2> -->
+
+<!-- <input type="text" name="name" [(ngModel)]="student1.name" placeholder="somename"/> -->
+<div id="studentdiv">
+    <div *ngFor="let student of students">
+        <h2>Name: {{student.name}}</h2>
+        <button id="myButton" (click)="onSelect(student)"> Show {{student.name}}'s age</button>
+    </div>
+
+    <!-- <h2>{{selectedStudentName}}'s age: {{selectedStudentAge}}</h2> -->
+    <app-student-age [studentName]=selectedStudentName [studentAge]=selectedStudentAge></app-student-age>
+</div>
