@@ -1,0 +1,10 @@
+npm install -g @angular/cli@14.0.7
+ng version
+ng new my-first-angular-project
+---
+start at index.html
+<body>
+  <app-root></app-root> => app-root is found in  app/app.component.ts => @component decorator (selector > app-root)
+</body>   => from .ts => .html =>  <span>{{ title }} app is running!</span> => title comes from .ts as exported class
+---
+ng g c 

@@ -1,0 +1,19 @@
+<table border="1">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Sales Volume</th>
+            <th>Met Quota (gte 5k)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let salesperson of salesPersonList">
+            <td>{{ salesperson.firstName }}</td>
+            <td>{{ salesperson.lastName }}</td>
+            <td>{{ salesperson.email }}</td>
+            <td>{{ salesperson.salesVolume }}</td>
+        </tr>
+    </tbody>
+</table>

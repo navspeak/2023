@@ -1,0 +1,4 @@
+docker pull container-registry.oracle.com/mysql/community-server:tag
+docker run --name=mysql1 --restart on-failure -d container-registry.oracle.com/mysql/community-server:latest -p 3306:3306
+$> docker logs mysql1 2>&1 | grep GENERATED
+GENERATED ROOT PASSWORD: Axegh3kAJyDLaRuBemecis&EShOsdocker exec -it mysql1 mysql -uroot -p
