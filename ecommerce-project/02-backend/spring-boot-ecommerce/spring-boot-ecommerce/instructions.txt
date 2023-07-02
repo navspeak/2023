@@ -1,3 +1,6 @@
 docker-compose up
 docker exec -it mysqldb bash
 docker logs mysqldb
+
+http://localhost:8080/swagger-ui/index.html
+https://springdoc.org/#spring-data-rest-support
