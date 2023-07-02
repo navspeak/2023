@@ -1,0 +1,33 @@
+1. ng new angular-ecommerce
+    npm install bootstrap
+    npm install jquery
+    === angular.json ===
+                "styles": [
+                "src/styles.css",
+                "node_modules/bootstrap/dist/css/bootstrap.css"
+                ],
+                "scripts": [
+                "node_modules/jquery/dist/jquery.min.js",
+                "node_modules/bootstrap/dist/js/bootstrap.min.js"
+                ]
+    ====================
+2. ng g c components/product-list
+3. ng generate class common/product
+4. ng generate service services/product (runs on web browser)
+    - import HttpClientModule in app.module.ts (also in provider section 
+    add ProductService)
+    - services can be injected into other classes / components(see services/product.service.ts)
+
+(=> common/products.ts : define prod class (match json from REST API)
+    => product.service.ts
+       - getProductList returns Observable<Product[]> and maps 
+         result from REST service to product array
+         => product-list.component.ts)
+       
+        
+
+===
+Cors issue => add cors support in backend
+===
+
+
