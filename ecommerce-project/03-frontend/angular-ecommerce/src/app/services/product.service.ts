@@ -11,6 +11,10 @@ export class ProductService {
   private baseUrl = 'http://localhost:8080/api/products'
   constructor(private httpClient: HttpClient) { }
   getProductList(): Observable<Product[]> {
+    /*
+     returns Observable<Product[]>
+     maps result from REST service to product array)
+    */
     return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
       map(response => response._embedded.products)
     )
@@ -18,6 +22,7 @@ export class ProductService {
 }
 
 interface GetResponse {
+  // unwraps REST response to get Product array
   _embedded : {
     products : Product[]
   }
