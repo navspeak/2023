@@ -1,4 +1,4 @@
-docker-compose up
+docker-compose up (docker container rm mysqldb -f)
 docker exec -it mysqldb bash
 docker logs mysqldb
 

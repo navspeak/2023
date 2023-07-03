@@ -3,31 +3,52 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../common/product';
 import { map } from 'rxjs/operators'
+import { ProductCategory } from '../common/product-category';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  private baseUrl = 'http://localhost:8080/api/products'
+  private baseUrl = 'http://localhost:8080/api/products' //??size=100;spring data REST default 20
+  private categoryUrl = 'http://localhost:8080/api/product-category' //??size=100;spring data REST default 20
   constructor(private httpClient: HttpClient) { }
-  getProductList(): Observable<Product[]> {
-    /*
-     returns Observable<Product[]>
-     maps result from REST service to product array)
-    */
-    return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
+  getProductList(theCategoryId: number): Observable<Product[]> {
+    const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`;
+    return this.getProducts(searchUrl)
+  }
+  searchProducts(theKeyWord: string | null): Observable<Product[]> {
+    const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyWord}`;
+    return this.getProducts(searchUrl)
+  }
+
+  private getProducts(searchUrl: string): Observable<Product[]> {
+    return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
       map(response => response._embedded.products)
+    );
+  }
+
+  getProductCategories(): Observable<ProductCategory[]>{
+    return this.httpClient.get<GetResponseProductCategory>(this.categoryUrl).pipe(
+      map(response => response._embedded.productCategory)
     )
   }
+
+
 }
 
-interface GetResponse {
+interface GetResponseProducts {
   // unwraps REST response to get Product array
-  _embedded : {
-    products : Product[]
+  _embedded: {
+    products: Product[]
   }
 }
 
+interface GetResponseProductCategory {
+  // unwraps REST response to get Product array
+  _embedded: {
+    productCategory: ProductCategory[]
+  }
+}
 /*
 {
   "_embedded" : {

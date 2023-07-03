@@ -1,5 +1,6 @@
 1. ng new angular-ecommerce
     npm install bootstrap
+    npm install @fortawesome/fontawesome-free
     npm install jquery
     === angular.json ===
                 "styles": [
@@ -30,4 +31,11 @@
 Cors issue => add cors support in backend
 ===
 
-
+Angular Routing: handles updating a view of ur app (doesn't reload entire page)
+1. Define Routes
+2. Configure Rouer based on our routes
+3. Define the Router outlet
+==
+ng generate class common/product-category
+new component for our menu
+- ng g component components/product-category-menu
