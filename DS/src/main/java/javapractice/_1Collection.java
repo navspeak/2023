@@ -5,6 +5,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class _1Collection {
     public static void main(String[] args) {
+        //https://www.baeldung.com/concurrenthashmap-reading-and-writing
 
         Deque<Integer> deque = new ArrayDeque<>(); //LinkedList<>();
         /* queue */
@@ -134,4 +135,34 @@ public class _1Collection {
 //            iterator2.remove(); //UnsupportedOperationException
 //        }
     }
+}
+// @Autowired with required = false
+// circular dependency spring - @Lazy
+interface A {
+    void foo();
+    default void bar(){
+        System.out.println("A's bar");
+    }
+
+}
+
+interface B {
+    void foo();
+    default void bar(){
+        System.out.println("A's bar");
+    }
+
+}
+
+class AB implements A,B{
+
+    public void foo() {
+        System.out.println("kkk");
+    }
+
+    @Override
+    public void bar() {
+        A.super.bar();
+    }
+
 }

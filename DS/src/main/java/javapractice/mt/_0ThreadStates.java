@@ -6,6 +6,9 @@ public class _0ThreadStates {
     public static void threadPoolSize(){
         var n = Runtime.getRuntime().availableProcessors();
         //https://medium.com/@techashishgupta/determine-the-ideal-thread-pool-size-java-concurrency-766d11e1fa79
+        // CPU intensive - nodejs not good for such use case - can't have thread more than cores
+        //in case of IO bound tasks with one core CPU, you can increase the number of threads and could gain the maximum utilization of CPU.
+        //Ideal thread Count= Number of Cores * [ 1+ (wait time/CPU time)] => wait time ~ 0 for CPU bound
         // Synch block is Reentrant
         /*
               public synchronized foo(){
@@ -64,7 +67,7 @@ public class _0ThreadStates {
         /*
         https://dzone.com/articles/why-do-we-need-threadcurrentthreadinterrupt-in-int
         As a rule of thumb, after catching  InterruptedException, do not forget to restore the interrupt by calling
-        Thread.currentThread().interrupt().
+        Thread.currentThread().interrupt(). //https://github.com/PacktPublishing/Java-Coding-Problems/tree/master/Chapter11/P213_ThreadInterruption
          */
     }
 
@@ -87,7 +90,7 @@ public class _0ThreadStates {
                task();
             }
 
-            static synchronized void task(){
+             synchronized void task(){
                 System.out.println(Thread.currentThread().getName() + " is executing");
                 while (true){
                     Thread.currentThread().getState();

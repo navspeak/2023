@@ -57,6 +57,7 @@ public class DeadLockExample {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
+                Thread.currentThread().interrupt();
             }
         }
     }
@@ -111,6 +112,7 @@ public class DeadLockExample {
         public void takeRoadA(){
             synchronized (roadA){
                 System.out.println("Road A is locked by Train " + Thread.currentThread().getName());
+                System.out.println("Road A intersection reached by Train " + Thread.currentThread().getName());
                 synchronized (roadB){
                     System.out.println("Train is passing thru road A");
                     try {
