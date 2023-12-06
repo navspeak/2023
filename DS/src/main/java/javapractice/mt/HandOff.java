@@ -1,4 +1,4 @@
-package javapractice.mt.udemy1;
+package javapractice.mt;
 
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;

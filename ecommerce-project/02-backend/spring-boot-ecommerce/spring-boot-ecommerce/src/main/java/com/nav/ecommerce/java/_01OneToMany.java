@@ -23,7 +23,7 @@ public class _01OneToMany {
     /*
     N+1 when fetch type eager (ManyToOne or OnetoOne)
     https://vladmihalcea.com/n-plus-1-query-problem/
-    List<PostComment> comments = entityManager
+    List<PhoneNumber> pnNums = entityManager
 .createQuery("""
     select pn
     from PhoneNumbers pn

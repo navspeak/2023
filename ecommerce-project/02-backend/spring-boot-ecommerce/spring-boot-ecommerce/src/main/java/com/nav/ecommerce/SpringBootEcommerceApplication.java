@@ -5,6 +5,7 @@ import com.nav.ecommerce.junitdemo.ApplicationService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @SpringBootApplication
 //@EnableSwagger2
@@ -28,4 +29,6 @@ public class SpringBootEcommerceApplication {
 	ApplicationDao getApplicationDao() {
 		return new ApplicationDao();
 	}
+
 }
+

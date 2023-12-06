@@ -1,4 +1,4 @@
-package javapractice;
+package javapractice.mt;
 
 import java.util.Collections;
 import java.util.ConcurrentModificationException;

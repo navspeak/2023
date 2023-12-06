@@ -1,10 +1,12 @@
-package javapractice;
+package javapractice.mt;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import java.util.stream.IntStream;
 
 public class _0Thread {
     // interrupts -java threads are cooperative. Runnable Task must check interrupt
@@ -29,8 +31,33 @@ public class _0Thread {
             wait(0L);
         See Thread.join
 
+        */
+        Thread t = new Thread(()-> {
+            System.out.println(Thread.currentThread().getName() + " Will do something bad in 10 sec...");
+            for (int i = 0; i < 10; i++) {
+                for (int j = 0; j < i; j++) {
+                    System.out.print(".");
+                }
+                System.out.println();
+                sleep(1);
+            }
+            sleep(1);
+            int x = 0;
+            int y = 10/x;});
+        t.setUncaughtExceptionHandler((Thread th, Throwable e) -> {
+                System.out.println("Exception in " + th.getName() + " " + e.getMessage());
+            });
+        t.start();
 
 
+
+    }
+    private static void sleep(int timeout) {
+        try {
+                TimeUnit.SECONDS.sleep(timeout);
+        } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+        }
     }
 
     public static void GC() {

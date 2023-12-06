@@ -1,4 +1,4 @@
-package javapractice.mt.udemy1;
+package javapractice.mt;
 
 import java.util.List;
 import java.util.Map;

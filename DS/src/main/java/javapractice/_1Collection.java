@@ -19,6 +19,7 @@ public class _1Collection {
         deque.isEmpty();
         System.out.println(x);
         deque.stream().forEach(System.out::println);
+        deque.iterator().forEachRemaining(System.out::println);
 
         Deque<Integer> stack = new ArrayDeque<>(); //LinkedList<>();
         stack.push(0); //addFirst
@@ -36,6 +37,7 @@ public class _1Collection {
         sortedMap.put(6, "Six");
         sortedMap.entrySet().stream().forEach(e-> System.out.println(e.getKey() + "->" + e.getValue()));//1,5,6,10
         sortedMap.headMap(5).entrySet().stream().forEach(e-> System.out.println(e.getKey() + "->" + e.getValue())); //only 1 strictly less than 5
+        sortedMap.tailMap(5).entrySet().stream().forEach(e-> System.out.println(e.getKey() + "->" + e.getValue())); // 5, 6, 7
         System.out.println(((TreeMap) sortedMap).floorEntry(5).getValue()); // five for (1->"five) strictly less than
         System.out.println(((TreeMap) sortedMap).ceilingEntry(5).getValue()); // five for (1->"five) >=5
 
